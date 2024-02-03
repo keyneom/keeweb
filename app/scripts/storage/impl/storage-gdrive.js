@@ -289,7 +289,7 @@ class StorageGDrive extends StorageBase {
     _getOAuthConfig() {
         let clientId = this.appSettings.gdriveClientId;
         let clientSecret = this.appSettings.gdriveClientSecret;
-        if (!clientId || !clientSecret) {
+        if (!clientId) {
             if (Features.isDesktop) {
                 ({ id: clientId, secret: clientSecret } = GDriveApps.Desktop);
             } else if (Features.isLocal) {
