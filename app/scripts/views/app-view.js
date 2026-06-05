@@ -374,7 +374,7 @@ class AppView extends View {
             minimizeInsteadOfClose = false;
         }
 
-        if (this.model.files.hasDirtyFiles()) {
+        if (this.model.files.hasDirtyFiles() || this.model.files.hasUnsavedFiles()) {
             if (Launcher) {
                 const exit = () => {
                     if (minimizeInsteadOfClose) {
@@ -547,7 +547,7 @@ class AppView extends View {
         let pendingCallbacks = 0;
         const errorFiles = [];
         this.model.files.forEach(function (file) {
-            if (!file.dirty) {
+            if (!file.modified && !file.dirty) {
                 return;
             }
             this.model.syncFile(file, null, fileSaved.bind(this, file));
@@ -561,7 +561,7 @@ class AppView extends View {
                 errorFiles.push(file.name);
             }
             if (--pendingCallbacks === 0) {
-                if (errorFiles.length && this.model.files.hasDirtyFiles()) {
+                if (errorFiles.length) {
                     if (!Alerts.alertDisplayed) {
                         const buttons = [Alerts.buttons.ok];
                         const errorStr =

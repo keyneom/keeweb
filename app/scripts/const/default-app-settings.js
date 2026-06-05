@@ -9,7 +9,7 @@ const DefaultAppSettings = {
     autoUpdate: 'install', // auto-update options: "install", "check", ""
     clipboardSeconds: 0, // number of seconds after which the clipboard will be cleared
     autoSave: true, // auto-save open files
-    autoSaveInterval: 0, // interval between performing automatic sync, minutes, -1: on every change
+    autoSaveInterval: -1, // interval between performing automatic sync, minutes, -1: on every change
     rememberKeyFiles: 'path', // remember keyfiles selected on the Open screen
     idleMinutes: 15, // app lock timeout after inactivity, minutes
     minimizeOnClose: false, // minimise the app instead of closing
@@ -82,8 +82,8 @@ const DefaultAppSettings = {
     webdavStatReload: false, // WebDAV: reload the file instead of relying on Last-Modified
 
     gdrive: true, // enable Google Drive integration
-    gdriveClientId: "244422037750-k1a3m8ggmhluhdim4pibmd3petpg6oul.apps.googleusercontent.com", // custom Google Drive client id
-    gdriveClientSecret: "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", // custom Google Drive client secret--doing this against my will since I don't want to fix this right now, I'll change the client later if needed, approved redirect URI's should keep this pretty safe since there shouldn't be any code injection or cross site scripting oportunities 
+    gdriveClientId: '244422037750-k1a3m8ggmhluhdim4pibmd3petpg6oul.apps.googleusercontent.com', // custom Google Drive client id
+    gdriveClientSecret: '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', // custom Google Drive client secret--doing this against my will since I don't want to fix this right now, I'll change the client later if needed, approved redirect URI's should keep this pretty safe since there shouldn't be any code injection or cross site scripting oportunities
 
     onedrive: true, // enable OneDrive integration
     onedriveClientId: null, // custom OneDrive client id
